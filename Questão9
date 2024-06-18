@@ -1,0 +1,45 @@
+import java.util.ArrayList;
+import java.util.List;
+
+class Pessoa {
+    private String nome;
+    private int idade;
+
+    public Pessoa(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    public void exibirInformacoes() {
+        System.out.println("Nome: " + nome);
+        System.out.println("Idade: " + idade);
+    }
+}
+
+class Estudante extends Pessoa {
+    private String curso;
+
+    public Estudante(String nome, int idade, String curso) {
+        super(nome, idade);
+        this.curso = curso;
+    }
+
+    @Override
+    public void exibirInformacoes() {
+        super.exibirInformacoes();
+        System.out.println("Curso: " + curso);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        List<Pessoa> pessoas = new ArrayList<>();
+
+        pessoas.add(new Pessoa("João", 30));
+        pessoas.add(new Estudante("Maria", 25, "Engenharia"));
+        for (Pessoa pessoa : pessoas) {
+            pessoa.exibirInformacoes(); 
+            System.out.println(); 
+        }
+    }
+}

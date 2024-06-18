@@ -1,0 +1,46 @@
+interface Trabalhador {
+    void trabalhar();
+}
+
+public class Funcionario implements Trabalhador {
+    protected double salario;
+    protected String departamento;
+
+    public Funcionario(double salario, String departamento) {
+        this.salario = salario;
+        this.departamento = departamento;
+    }
+
+    @Override
+    public void trabalhar() {
+        System.out.println("O funcionário está trabalhando.");
+    }
+}
+
+public class Gerente extends Funcionario implements Trabalhador {
+    private double bonus;
+
+    public Gerente(double salario, String departamento, double bonus) {
+        super(salario, departamento);
+        this.bonus = bonus;
+    }
+
+    @Override
+    public void trabalhar() {
+        System.out.println("O gerente está trabalhando.");
+    }
+}
+
+public class Empresa {
+    public void adicionarTrabalhador(Trabalhador trabalhador) {
+        trabalhador.trabalhar();
+    }
+
+    public static void main(String[] args) {
+        Funcionario funcionario = new Funcionario(3000, "RH");
+        Gerente gerente = new Gerente(5000, "TI", 1000);
+        Empresa empresa = new Empresa();
+        empresa.adicionarTrabalhador(funcionario);
+        empresa.adicionarTrabalhador(gerente);
+    }
+}

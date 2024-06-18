@@ -1,0 +1,30 @@
+public class Estudante extends Pessoa {
+    private String curso;
+
+    // Construtor
+    public Estudante(String nome, int idade, String curso) {
+        super(nome, idade);
+        this.curso = curso;
+    }
+
+    public String getCurso() {
+        return curso;
+    }
+
+    public void setCurso(String curso) {
+        this.curso = curso;
+    }
+    @Override
+    public void exibirInformacoes() {
+        super.exibirInformacoes(); // Chama o método exibirInformacoes da superclasse
+        System.out.println("Curso: " + curso);
+    }
+
+    public static void main(String[] args) {
+        Estudante estudante = new Estudante("Teco", 77, "Medisquina");
+        estudante.exibirInformacoes();
+
+        estudante.setCurso("Ciência da Computação");
+        estudante.exibirInformacoes();
+    }
+}
